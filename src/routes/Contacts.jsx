@@ -1,13 +1,57 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { query, collection, onSnapshot } from 'firebase/firestore';
+import db from '../db';
+
 import Header from '../components/SiteHeader';
 import SearchBar from '../components/SearchBar';
 
-
 function Contacts(){
+    // states
+    const [contactList, setContactList] = useState([]);
+
+    // Pull database snapshot
+    useEffect( () => {
+        const q = query( collection(db, 'contacts') );
+
+        const snapShot = onSnapshot(q, (querySnapshot) => {
+            const data = [];
+            querySnapshot.forEach( (doc) => data.push({
+                id: doc.id,
+                firstName: doc.data().firstName,
+                lastName: doc.data().lastName,
+                address: doc.data().address,
+                city: doc.data().city,
+                prov: doc.data().prov,
+                postalCode: doc.data().postalCode,
+                email: doc.data().email,
+                phone: doc.data().phone
+            }));
+
+            setContactList(data);
+            console.log(data);
+        })
+    }, []);
+    
 
     //build
     return (
-        <h1>Contacts Page</h1>
+        <article>
+            <Header title="Contact Book">
+                <Link to="new_contact" aria-label='Add new contact'> <i className="fa-solid fa-plus" aria-hidden="true"></i> </Link>
+            </Header>
+            <main>
+                <SearchBar></SearchBar>
+                <article>
+                    <ul>
+                        
+                    </ul>
+                </article>
+
+            </main>
+
+    
+        </article>
       );
 }
 
