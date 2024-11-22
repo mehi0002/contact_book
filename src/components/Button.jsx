@@ -2,9 +2,7 @@
 function Button (props){
 
     return(
-        <article>
-            <button>Button</button>
-        </article>
+        <button>{props.children}</button>
     )
 }
 

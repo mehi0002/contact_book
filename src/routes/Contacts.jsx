@@ -29,7 +29,6 @@ function Contacts(){
             }));
 
             setContactList(data);
-            console.log(data);
         })
     }, []);
     
@@ -41,11 +40,21 @@ function Contacts(){
                 <Link to="new_contact" aria-label='Add new contact'> <i className="fa-solid fa-plus" aria-hidden="true"></i> </Link>
             </Header>
             <main>
-                <SearchBar></SearchBar>
                 <article>
-                    <ul>
-                        
-                    </ul>
+                    <header>
+                        <SearchBar></SearchBar>
+                    </header>
+                    <main>
+                        <ul>
+                            { contactList.map(contact =>
+                                <li key={contact.id}>
+                                    <Link to={`contact/${contact.id}`}> 
+                                        {`${contact.firstName} ${contact.lastName}`} 
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
+                    </main>
                 </article>
 
             </main>
