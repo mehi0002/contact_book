@@ -20,12 +20,6 @@ function Contacts(){
                 id: doc.id,
                 firstName: doc.data().firstName,
                 lastName: doc.data().lastName,
-                address: doc.data().address,
-                city: doc.data().city,
-                prov: doc.data().prov,
-                postalCode: doc.data().postalCode,
-                email: doc.data().email,
-                phone: doc.data().phone
             }));
 
             setContactList(data);

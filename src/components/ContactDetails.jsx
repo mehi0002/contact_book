@@ -1,5 +1,9 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getDoc, doc} from "firebase/firestore";
+import db from "../db";
 
-function ContactDetails (props){
+function ContactDetails (){
 
     return(
         <article>
