@@ -2,7 +2,9 @@
 function Button (props){
 
     return(
-        <button>{props.children}</button>
+        <button aria-label='props.label'> 
+            {props.children}
+        </button>
     )
 }
 

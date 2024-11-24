@@ -31,7 +31,9 @@ function Contacts(){
     return (
         <article>
             <Header title="Contact Book">
-                <Link to="new_contact" aria-label='Add new contact'> <i className="fa-solid fa-plus" aria-hidden="true"></i> </Link>
+                <Link to="new_contact" aria-label='Add new contact'> 
+                    <i className="fa-solid fa-plus" aria-hidden="true"></i> 
+                </Link>
             </Header>
             <main>
                 <article>
