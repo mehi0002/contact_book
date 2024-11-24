@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import Toolbar from "./Toolbar";
 
 function SiteHeader(props){
     return(
-        <header>
-            {props.backNav && <Link to={props.backNav}>back</Link>}
+        <header className="site-header">
+            {props.back && <Link to={props.back}>back</Link>}
             <h1>{props.title}</h1>
-            {props.children}
+            <Toolbar>
+                {props.children}
+            </Toolbar>
         </header>
     );
 }
