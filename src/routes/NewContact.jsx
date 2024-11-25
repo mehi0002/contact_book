@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import SiteHeader from "../components/SiteHeader";
 import ContactForm from "../components/ContactForm";
 
 function NewContact(){
+    const backNav = "/";
+    const navigate = useNavigate();
 
     // States
     const [details, setDetails] = useState({
@@ -29,11 +33,21 @@ function NewContact(){
   
     }
 
+    function onCancelHandler(e){
+        e.preventDefault();
+        navigate(backNav);
+    }
+
     return(
         <article>
             <SiteHeader title="Add new contact"></SiteHeader>
             <main>
-                <ContactForm {...details}  changeInput={changeInputHandler} updateContact={updateContactHandler} />
+                <ContactForm 
+                    {...details}  
+                    changeInput={changeInputHandler} 
+                    updateContact={updateContactHandler}
+                    onCancel={onCancelHandler} 
+                />
             </main>
         </article>
     );

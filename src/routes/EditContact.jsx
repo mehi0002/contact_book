@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { getDoc, doc} from "firebase/firestore";
 import db from "../db";
@@ -8,9 +8,12 @@ import SiteHeader from "../components/SiteHeader";
 import ContactForm from "../components/ContactForm";
 
 function EditContact(){
-
- // States
     const params = useParams();
+
+    const backNav="/contact/" + params.id;
+    const navigate = useNavigate();
+
+    // States
     const [details, setDetails] = useState({
         id: '',
         firstName: '',
@@ -55,11 +58,27 @@ function EditContact(){
   
     }
 
+    function onCancelHandler(e){
+        e.preventDefault();
+        navigate(backNav);
+    }
+
+    function deleteContact(){
+
+    }
+
     return(
         <article>
-            <SiteHeader title="Edit"></SiteHeader>
+            <SiteHeader title="Edit">
+                <button onClick={deleteContact}>Delete</button>
+            </SiteHeader>
             <main>
-                <ContactForm {...details}  changeInput={changeInputHandler} updateContact={updateContactHandler} />
+                <ContactForm 
+                    {...details}  
+                    changeInput={changeInputHandler} 
+                    updateContact={updateContactHandler}
+                    onCancel={onCancelHandler} 
+                />
             </main>
         </article>
     );

@@ -46,8 +46,7 @@ function ContactForm(props){
             <footer>
                 <Toolbar>
                     <button type="submit">Save</button>
-                    <button>Cancel</button>
-                    <button>Delete</button>
+                    <button onClick={props.onCancel}>Cancel</button>
                 </Toolbar>
             </footer>
             
