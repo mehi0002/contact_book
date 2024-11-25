@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
+import db from "../db";
 
 import SiteHeader from "../components/SiteHeader";
 import ContactForm from "../components/ContactForm";
@@ -29,8 +31,17 @@ function NewContact(){
         })
     }
 
-    function updateContactHandler(){
-  
+    function addContactHandler(){
+
+        if(details.firstName && details.lastName) {
+            const c = collection(db, "contacts");
+
+            addDoc(c, {...details})
+            .then(document => {
+                navigate(`/contact/${document.id}`)
+            })
+        }
+
     }
 
     function onCancelHandler(e){
@@ -45,7 +56,7 @@ function NewContact(){
                 <ContactForm 
                     {...details}  
                     changeInput={changeInputHandler} 
-                    updateContact={updateContactHandler}
+                    onSubmit={addContactHandler}
                     onCancel={onCancelHandler} 
                 />
             </main>

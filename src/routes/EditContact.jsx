@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { getDoc, doc} from "firebase/firestore";
+import { getDoc, updateDoc, doc} from "firebase/firestore";
 import db from "../db";
 
 import SiteHeader from "../components/SiteHeader";
@@ -55,7 +55,13 @@ function EditContact(){
     }
 
     function updateContactHandler(){
-  
+        if(details.firstName && details.lastName) {
+
+            updateDoc( doc(db, "contacts", details.id), {...details})
+            .then(() => {
+                navigate(`/contact/${details.id}`)
+            })
+        }
     }
 
     function onCancelHandler(e){
@@ -76,7 +82,7 @@ function EditContact(){
                 <ContactForm 
                     {...details}  
                     changeInput={changeInputHandler} 
-                    updateContact={updateContactHandler}
+                    onSubmit={updateContactHandler}
                     onCancel={onCancelHandler} 
                 />
             </main>

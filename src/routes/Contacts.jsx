@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { query, collection, onSnapshot } from 'firebase/firestore';
+import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
 import db from '../db';
 
 import Header from '../components/SiteHeader';
@@ -12,7 +12,7 @@ function Contacts(){
 
     // Pull database snapshot
     useEffect( () => {
-        const q = query( collection(db, 'contacts') );
+        const q = query( collection(db, 'contacts'), orderBy('lastName') );
 
         const snapShot = onSnapshot(q, (querySnapshot) => {
             const data = [];
