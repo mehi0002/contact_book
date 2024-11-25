@@ -1,14 +1,20 @@
 
 function SearchBar (props){
 
+    function onChangeHandler(e){
+        props.onChange(e.target.value);
+    }
+
     return(
         <form role="search">
-            <fieldset role="group">
-                <input type="search" placeholder="search by name" aria-label="search by name"></input>
-                <button aria-label="submit"> 
-                    <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 
-                </button>
-            </fieldset>
+            <input 
+                type="search" 
+                value={props.search} 
+                placeholder="search by name" 
+                aria-label="search by name"
+                onChange={onChangeHandler}>
+            </input>
+                
         </form>
     )
 }

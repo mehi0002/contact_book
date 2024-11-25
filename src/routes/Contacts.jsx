@@ -9,6 +9,7 @@ import SearchBar from '../components/SearchBar';
 function Contacts(){
     // states
     const [contactList, setContactList] = useState([]);
+    const [search, setSearch] = useState('');
 
     // Pull database snapshot
     useEffect( () => {
@@ -26,6 +27,9 @@ function Contacts(){
         })
     }, []);
     
+    function updateSearchHandler(s){
+        setSearch(s);
+    }
 
     //build
     return (
@@ -38,17 +42,23 @@ function Contacts(){
             <main>
                 <article>
                     <header>
-                        <SearchBar></SearchBar>
+                        <SearchBar search={search} onChange={updateSearchHandler}></SearchBar>
                     </header>
                     <main>
                         <ul>
-                            { contactList.map(contact =>
-                                <li key={contact.id}>
-                                    <Link to={`contact/${contact.id}`}> 
-                                        {`${contact.firstName} ${contact.lastName}`} 
-                                    </Link>
-                                </li>
-                            )}
+                            { 
+                                contactList.filter( contact => 
+                                    contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
+                                    contact.lastName.toLowerCase().includes(search.toLowerCase()) 
+                                )
+                                .map(contact =>
+                                    <li key={contact.id}>
+                                        <Link to={`contact/${contact.id}`}> 
+                                            {`${contact.firstName} ${contact.lastName}`} 
+                                        </Link>
+                                    </li>
+                                )
+                            }
                         </ul>
                     </main>
                 </article>
