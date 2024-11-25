@@ -6,7 +6,6 @@ import db from "../db";
 import Button from "../components/Button";
 import SiteHeader from "../components/SiteHeader";
 import ContactDetails from "../components/ContactDetails";
-import ContactForm from "../components/ContactForm";
 
 function Contact(){
     const [details, setDetails] = useState([]);
