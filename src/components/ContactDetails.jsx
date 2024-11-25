@@ -20,7 +20,7 @@ function ContactDetails ({details}){
                     <div> 
                         <span> {details.address} </span>
                         <span> {`${details.city} ${details.prov}`} </span>
-                        <span> {details.postCode} </span>            
+                        <span> {details.postalCode} </span>            
                     </div>
                 </li>
             </ul>

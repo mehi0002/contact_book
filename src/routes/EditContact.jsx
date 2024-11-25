@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { getDoc, updateDoc, doc} from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import db from "../db";
 
 import SiteHeader from "../components/SiteHeader";
@@ -69,15 +69,9 @@ function EditContact(){
         navigate(backNav);
     }
 
-    function deleteContact(){
-
-    }
-
     return(
         <article>
-            <SiteHeader title="Edit">
-                <button onClick={deleteContact}>Delete</button>
-            </SiteHeader>
+            <SiteHeader title="Edit" />
             <main>
                 <ContactForm 
                     {...details}  

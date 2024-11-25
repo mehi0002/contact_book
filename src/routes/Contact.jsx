@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { getDoc, doc} from "firebase/firestore";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { getDoc, doc, deleteDoc} from "firebase/firestore";
 import db from "../db";
 
-import Button from "../components/Button";
 import SiteHeader from "../components/SiteHeader";
 import ContactDetails from "../components/ContactDetails";
 
 function Contact(){
     const [details, setDetails] = useState([]);
     const params = useParams();
+    const navigate = useNavigate();
 
     useEffect( () => {
         getDoc( doc(db, "contacts", params.id))
@@ -31,15 +31,20 @@ function Contact(){
 
     }, []);
 
+    function deleteContact(){
+        deleteDoc( doc(db, "contacts", details.id) )
+        .then(() => navigate("/"));
+    }
+
     return(
         <article>
             <SiteHeader title={`${details.firstName} ${details.lastName}`} back="/">
                 <Link to="edit" aria-label="Edit contact"> 
                     <i className="fa-regular fa-pen-to-square" aria-hidden="true"></i> 
                 </Link>
-                <Button label="Delete contact" onClick="onDeleteHandler"> 
+                <button aria-label="Delete contact" onClick={deleteContact}> 
                     <i className="fa-solid fa-trash" aria-hidden="true"></i> 
-                </Button>
+                </button>
             </SiteHeader>
             <main>
                 <ContactDetails details={details} />

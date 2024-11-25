@@ -12,7 +12,6 @@ function NewContact(){
 
     // States
     const [details, setDetails] = useState({
-        id: '',
         firstName: '',
         lastName: '',
         email: '',
