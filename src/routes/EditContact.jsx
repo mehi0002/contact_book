@@ -8,7 +8,6 @@ import SiteHeader from "../components/SiteHeader";
 import ContactForm from "../components/ContactForm";
 
 function EditContact(){
-    const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
 
  // States
     const params = useParams();
@@ -60,7 +59,7 @@ function EditContact(){
         <article>
             <SiteHeader title="Edit"></SiteHeader>
             <main>
-                <ContactForm {...details} changeInput={changeInputHandler} updateContact={updateContactHandler} />
+                <ContactForm {...details}  changeInput={changeInputHandler} updateContact={updateContactHandler} />
             </main>
         </article>
     );
