@@ -54,8 +54,6 @@ function Contacts(){
                 </article>
 
             </main>
-
-    
         </article>
       );
 }

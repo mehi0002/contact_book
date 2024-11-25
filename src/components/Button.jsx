@@ -7,7 +7,7 @@ function Button (props){
     }
 
     return(
-        <button aria-label='props.desc' onClick="onClick"> 
+        <button aria-label='props.desc' onClick={onClick}> 
             {props.children}
         </button>
     )
