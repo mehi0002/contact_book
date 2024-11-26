@@ -5,6 +5,7 @@ import db from "../db";
 
 import SiteHeader from "../components/SiteHeader";
 import ContactDetails from "../components/ContactDetails";
+import ConfirmationButton from "../components/ConfirmationButton";
 
 function Contact(){
     const [details, setDetails] = useState([]);
@@ -42,9 +43,15 @@ function Contact(){
                 <Link to="edit" aria-label="Edit contact"> 
                     <i className="fa-regular fa-pen-to-square" aria-hidden="true"></i> 
                 </Link>
-                <button aria-label="Delete contact" onClick={deleteContact}> 
+                <ConfirmationButton 
+                    label = {`delete ${details.fristName} ${details.lastName}`}
+                    confirmation={`Are you sure you would like to delete ${details.firstName} ${details.lastName}?`}
+                    onConfirm={deleteContact}>
+                        <i className="fa-solid fa-trash" aria-hidden="true"></i>
+                </ConfirmationButton>
+                {/* <button aria-label="Delete contact" onClick={deleteContact}> 
                     <i className="fa-solid fa-trash" aria-hidden="true"></i> 
-                </button>
+                </button> */}
             </SiteHeader>
             <main>
                 <ContactDetails details={details} />
