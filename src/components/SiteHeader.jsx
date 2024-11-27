@@ -3,12 +3,14 @@ import Toolbar from "./Toolbar";
 
 function SiteHeader(props){
     return(
-        <header className="site-header">
-            {props.back && <Link to={props.back}>back</Link>}
+        <header id="site-header">
+            <div>
+                {props.back && <Link className="icon" to={props.back} aria-label="back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></Link>}
+                <Toolbar>
+                    {props.children}
+                </Toolbar>
+            </div>
             <h1>{props.title}</h1>
-            <Toolbar>
-                {props.children}
-            </Toolbar>
         </header>
     );
 }

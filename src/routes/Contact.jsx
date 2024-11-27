@@ -40,18 +40,16 @@ function Contact(){
     return(
         <article>
             <SiteHeader title={`${details.firstName} ${details.lastName}`} back="/">
-                <Link to="edit" aria-label="Edit contact"> 
+                <Link  className="icon" to="edit" aria-label="Edit contact"> 
                     <i className="fa-regular fa-pen-to-square" aria-hidden="true"></i> 
                 </Link>
                 <ConfirmationButton 
+                    className="icon"
                     label = {`delete ${details.fristName} ${details.lastName}`}
                     confirmation={`Are you sure you would like to delete ${details.firstName} ${details.lastName}?`}
                     onConfirm={deleteContact}>
                         <i className="fa-solid fa-trash" aria-hidden="true"></i>
                 </ConfirmationButton>
-                {/* <button aria-label="Delete contact" onClick={deleteContact}> 
-                    <i className="fa-solid fa-trash" aria-hidden="true"></i> 
-                </button> */}
             </SiteHeader>
             <main>
                 <ContactDetails details={details} />
