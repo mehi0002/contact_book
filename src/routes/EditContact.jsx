@@ -70,7 +70,7 @@ function EditContact(){
     }
 
     return(
-        <article id="app">
+        <article id="app" data-theme="light">
             <AppHeader title={`${details.firstName} ${details.lastName}`} />
             <main>
                 <ContactForm 

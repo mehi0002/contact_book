@@ -33,9 +33,9 @@ function Contacts(){
 
     //build
     return (
-        <article id="app">
+        <article id="app" data-theme="light">
             <AppHeader title="Contact Book">
-                <Link  className="icon" to="new_contact" aria-label='Add new contact'> 
+                <Link className="icon" to="new_contact" aria-label='Add new contact'> 
                     <i className="fa-solid fa-plus" aria-hidden="true"></i> 
                 </Link>
             </AppHeader>

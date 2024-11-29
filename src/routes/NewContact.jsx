@@ -49,7 +49,7 @@ function NewContact(){
     }
 
     return(
-        <article  id="app">
+        <article  id="app" data-theme="light">
             <AppHeader title="Add New Contact"/>
             <main>
                 <ContactForm 

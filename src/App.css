@@ -2,6 +2,10 @@
     max-width: 576px;
 }
 
+#app {
+    min-height: 100vh;
+}
+
 /* Header */
 #app-header .actions{
     display: flex;
@@ -22,17 +26,34 @@
     flex-grow: 2;
 }
 
+/*** Buttons ***/
+/* button, button[type=submit]{
+    font-weight: 500;
+} */
+
+button:hover, button[type=submit]:hover {
+    background-color: var(--pico-primary-focus);
+    color: var(--pico-primary);
+    font-weight: 500;
+}
+
 /*** Interactive Icons ***/
 a.icon, button.icon {
-    padding: 0;
-    margin: 0.5rem;
     background: none;
     border: none;
     color: var(--pico-primary);
+
+    padding: 0.5rem;
+    border-radius: var(--pico-border-radius);
 }
 
 a.icon i, button.icon i {
     font-size: 1.25rem;
+}
+
+a.icon:hover, button.icon:hover {
+    background-color: var(--pico-primary-background);
+    color: var(--pico-primary-inverse);
 }
 
 /************* Layouts *****************/
@@ -56,7 +77,6 @@ ul.table li{
 ul.table span{
     display: table-cell;
     padding: 0.25em 1em;
-    border-bottom: 1px solid var(--pico-form-element-border-color);
 }
 
 /***** Contacts List *****/
@@ -70,6 +90,13 @@ ul.table span{
     padding: 0.5rem;
     border-bottom: 1px solid var(--pico-form-element-border-color);
     text-decoration: none;
+    border-radius: var(--pico-border-radius);
+    --pico-color: var(--pico-color);
+}
+
+#contactList a:hover {
+    background-color: var(--pico-primary-background);
+    color: var(--pico-primary-inverse);
 }
 
 /***** Contact Details *****/
@@ -80,11 +107,11 @@ ul.table span{
 }
 
 /******* Forms *******/
-form select {
-    width:fit-content;
-}
-
 form fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+
     padding: 0.5rem;
     border: 1px solid var(--pico-form-element-border-color);
     border-radius: var(--pico-border-radius);
@@ -99,11 +126,18 @@ form legend{
     padding: 0 1rem;
 }
 
+/* Floating form elements */
+div.floating {
+    width:fit-content;
+    margin-right: 1rem;
+}
+
+/* Required fields */
 form span.required {
     color:firebrick;
     font-weight: 700;
 }
 
 p.required{
-    font-size: 0.5em;
+    font-size: smaller;
 }

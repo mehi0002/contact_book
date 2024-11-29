@@ -38,7 +38,7 @@ function Contact(){
     }
 
     return(
-        <article id="app">
+        <article id="app" data-theme="light">
             <AppHeader title={`${details.firstName} ${details.lastName}`} back="/">
                 <Link  className="icon" to="edit" aria-label="Edit contact"> 
                     <i className="fa-regular fa-pen-to-square" aria-hidden="true"></i> 

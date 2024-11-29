@@ -92,34 +92,36 @@ function ContactForm(props){
                 />
                 
                 {/* Province */}
-                <label htmlFor="prov">Province</label>
-                <select 
-                    id="prov" 
-                    className="fit"
-                    name="prov" 
-                    value={props.prov} 
-                    onChange={changeHandler}>
-                        
-                        {provinces.map((province, index) => 
-                        
-                            <option key={index} value={province} aria-selected={province === props.prov ? true : false }> 
-                                {province}
-                            </option>
-                        )}
+                <div className="floating">
+                    <label htmlFor="prov">Province</label>
+                    <select 
+                        id="prov" 
+                        name="prov" 
+                        value={props.prov} 
+                        onChange={changeHandler}>
+                            
+                            {provinces.map((province, index) => 
+                            
+                                <option key={index} value={province} aria-selected={province === props.prov ? true : false }> 
+                                    {province}
+                                </option>
+                            )}
 
-                </select>
+                    </select>
+                </div>
 
                 {/* Postal Code */}
-                <label htmlFor="pCode">Postal Code</label>
-                <input 
-                    type="text" 
-                    id="pCode" 
-                    className="fit"
-                    name="postalCode" 
-                    value={props.postalCode} 
-                    placeholder="A1A 1A1" 
-                    onChange={changeHandler} 
-                /> 
+                <div className="floating">
+                    <label htmlFor="pCode">Postal Code</label>
+                    <input 
+                        type="text" 
+                        id="pCode" 
+                        name="postalCode" 
+                        value={props.postalCode} 
+                        placeholder="A1A 1A1" 
+                        onChange={changeHandler} 
+                    /> 
+                </div>
             </fieldset>
             
             <footer>
