@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Toolbar from "./Toolbar";
 
 function ContactForm(props){
@@ -15,9 +14,12 @@ function ContactForm(props){
 
     return(
         <form>
+            <p class="required"><em>Fields marked with an (<span class="required">*</span>) are required</em></p>
+
             {/* First Name - REQUIRED */}
-            <label htmlFor="fName">* First Name</label>
+            <label htmlFor="fName">First Name <span class="required">*</span></label>
             <input 
+                aria-required="true"
                 type="text" 
                 id="fName" 
                 name="firstName" 
@@ -28,8 +30,9 @@ function ContactForm(props){
             />
             
             {/* Last Name - REQUIRED */}
-            <label htmlFor="lName">* Last Name</label>
+            <label htmlFor="lName">Last Name <span class="required">*</span></label>
             <input 
+                aria-required="true"
                 type="text" 
                 id="lName" 
                 name="lastName" 
@@ -47,17 +50,19 @@ function ContactForm(props){
                 name="email" 
                 value={props.email} 
                 placeholder="email@provider.com" 
+                autoComplete="email"
                 onChange={changeHandler}
             />
             
             {/* Phone */}
             <label htmlFor="phone">Phone</label>
             <input 
-                type="text" 
+                type="tel" 
                 id="phone" 
                 name="phone" 
                 value={props.phone} 
                 placeholder="(xxx)xxx-xxxx" 
+                autoComplete="tel"
                 onChange={changeHandler}
             />
             
@@ -90,6 +95,7 @@ function ContactForm(props){
                 <label htmlFor="prov">Province</label>
                 <select 
                     id="prov" 
+                    className="fit"
                     name="prov" 
                     value={props.prov} 
                     onChange={changeHandler}>
@@ -108,6 +114,7 @@ function ContactForm(props){
                 <input 
                     type="text" 
                     id="pCode" 
+                    className="fit"
                     name="postalCode" 
                     value={props.postalCode} 
                     placeholder="A1A 1A1" 

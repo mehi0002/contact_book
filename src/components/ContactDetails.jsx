@@ -1,8 +1,8 @@
 function ContactDetails ({details}){
 
     return(
-        <address className="details">
-            <ul>
+        <address>
+            <ul id="contactDetails" className="table">
                 <li>
                     <span>Email:</span> 
                     <span>{details.email}</span>
@@ -13,11 +13,11 @@ function ContactDetails ({details}){
                 </li>
                 <li>
                     <span>Address:</span> 
-                    <div> 
-                        <span> {details.address} </span>
-                        <span> {`${details.city} ${details.prov}`} </span>
-                        <span> {details.postalCode} </span>            
-                    </div>
+                    <span className="multi-line"> 
+                        <div> {details.address} </div>
+                        <div> {`${details.city} ${details.prov}`} </div>
+                        <div> {details.postalCode} </div>            
+                    </span>
                 </li>
             </ul>
                                    

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
 import db from '../db';
 
-import Header from '../components/SiteHeader';
+import AppHeader from '../components/AppHeader';
 import SearchBar from '../components/SearchBar';
 
 function Contacts(){
@@ -33,19 +33,19 @@ function Contacts(){
 
     //build
     return (
-        <article>
-            <Header title="Contact Book">
+        <article id="app">
+            <AppHeader title="Contact Book">
                 <Link  className="icon" to="new_contact" aria-label='Add new contact'> 
                     <i className="fa-solid fa-plus" aria-hidden="true"></i> 
                 </Link>
-            </Header>
+            </AppHeader>
             <main>
                 <article>
                     <header>
                         <SearchBar search={search} onChange={updateSearchHandler}></SearchBar>
                     </header>
                     <main>
-                        <ul>
+                        <ul id="contactList" className="table">
                             { 
                                 contactList.filter( contact => 
                                     contact.firstName.toLowerCase().includes(search.toLowerCase()) ||

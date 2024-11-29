@@ -7,8 +7,7 @@ import Contacts from './routes/Contacts';
 import Contact from './routes/Contact';
 import NewContact from './routes/NewContact';
 import EditContact from './routes/EditContact';
-
-// import './index.css'
+import './app.css';
 
 const router = createBrowserRouter([
   {

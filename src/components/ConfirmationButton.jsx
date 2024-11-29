@@ -19,7 +19,7 @@ function ConfirmationButton (props){
 
     return(
         <>
-            <button aria-label='props.label' onClick={onClick}> 
+            <button className={props.className} aria-label='props.label' onClick={onClick}> 
                 {props.children}
             </button>
             <Modal 

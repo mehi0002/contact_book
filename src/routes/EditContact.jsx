@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import db from "../db";
 
-import SiteHeader from "../components/SiteHeader";
+import AppHeader from "../components/AppHeader";
 import ContactForm from "../components/ContactForm";
 
 function EditContact(){
@@ -70,8 +70,8 @@ function EditContact(){
     }
 
     return(
-        <article>
-            <SiteHeader title="Edit" />
+        <article id="app">
+            <AppHeader title={`${details.firstName} ${details.lastName}`} />
             <main>
                 <ContactForm 
                     {...details}  

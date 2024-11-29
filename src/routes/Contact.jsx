@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getDoc, doc, deleteDoc} from "firebase/firestore";
 import db from "../db";
 
-import SiteHeader from "../components/SiteHeader";
+import AppHeader from "../components/AppHeader";
 import ContactDetails from "../components/ContactDetails";
 import ConfirmationButton from "../components/ConfirmationButton";
 
@@ -38,8 +38,8 @@ function Contact(){
     }
 
     return(
-        <article>
-            <SiteHeader title={`${details.firstName} ${details.lastName}`} back="/">
+        <article id="app">
+            <AppHeader title={`${details.firstName} ${details.lastName}`} back="/">
                 <Link  className="icon" to="edit" aria-label="Edit contact"> 
                     <i className="fa-regular fa-pen-to-square" aria-hidden="true"></i> 
                 </Link>
@@ -50,7 +50,7 @@ function Contact(){
                     onConfirm={deleteContact}>
                         <i className="fa-solid fa-trash" aria-hidden="true"></i>
                 </ConfirmationButton>
-            </SiteHeader>
+            </AppHeader>
             <main>
                 <ContactDetails details={details} />
             </main>

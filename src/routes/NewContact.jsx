@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
 import db from "../db";
 
-import SiteHeader from "../components/SiteHeader";
+import AppHeader from "../components/AppHeader";
 import ContactForm from "../components/ContactForm";
 
 function NewContact(){
@@ -49,8 +49,8 @@ function NewContact(){
     }
 
     return(
-        <article>
-            <SiteHeader title="Add new contact"></SiteHeader>
+        <article  id="app">
+            <AppHeader title="Add New Contact"/>
             <main>
                 <ContactForm 
                     {...details}  
