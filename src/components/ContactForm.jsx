@@ -1,8 +1,10 @@
-import Toolbar from "./Toolbar";
+/* Form for filling out contact info. 
+Can be pre-filled with an existing contact, or start blank */
 
 function ContactForm(props){
     const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
     
+    /*** Handlers ***/
     function changeHandler(e){
         props.changeInput(e);
     }
@@ -14,10 +16,13 @@ function ContactForm(props){
 
     return(
         <form>
-            <p class="required"><em>Fields marked with an (<span class="required">*</span>) are required</em></p>
+
+            <p className="required">
+                <em>Fields marked with an (<span className="required">*</span>) are required</em>
+            </p>
 
             {/* First Name - REQUIRED */}
-            <label htmlFor="fName">First Name <span class="required">*</span></label>
+            <label htmlFor="fName">First Name <span className="required">*</span></label>
             <input 
                 aria-required="true"
                 type="text" 
@@ -30,7 +35,7 @@ function ContactForm(props){
             />
             
             {/* Last Name - REQUIRED */}
-            <label htmlFor="lName">Last Name <span class="required">*</span></label>
+            <label htmlFor="lName">Last Name <span className="required">*</span></label>
             <input 
                 aria-required="true"
                 type="text" 
@@ -69,6 +74,7 @@ function ContactForm(props){
             {/* Address */}
             <fieldset>
                 <legend>Address</legend>
+                
                 {/* Street number and name */}
                 <label htmlFor="address">Street</label>
                 <input 
@@ -124,11 +130,9 @@ function ContactForm(props){
                 </div>
             </fieldset>
             
-            <footer>
-                <Toolbar>
-                    <button type="submit" onClick={submitContact}>Save</button>
-                    <button onClick={props.onCancel}>Cancel</button>
-                </Toolbar>
+            <footer className="toolbar">
+                <button type="submit" onClick={submitContact}>Save</button>
+                <button onClick={props.onCancel}>Cancel</button>
             </footer>
             
         </form>         

@@ -1,3 +1,5 @@
+// Form to add a new contact
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
@@ -7,10 +9,12 @@ import AppHeader from "../components/AppHeader";
 import ContactForm from "../components/ContactForm";
 
 function NewContact(){
+
+    /*** Settings and Parameters */
     const backNav = "/";
     const navigate = useNavigate();
 
-    // States
+    /*** States ***/
     const [details, setDetails] = useState({
         firstName: '',
         lastName: '',
@@ -22,6 +26,9 @@ function NewContact(){
         postalCode: ''
     });
     
+    /*** Handlers ***/
+
+    // Update state when form input changes
     function changeInputHandler(e){
 
         setDetails({
@@ -30,6 +37,7 @@ function NewContact(){
         })
     }
 
+    // Add a new contact to the database
     function addContactHandler(){
 
         if(details.firstName && details.lastName) {
@@ -43,6 +51,7 @@ function NewContact(){
 
     }
 
+    // If user cancels, go back to home
     function onCancelHandler(e){
         e.preventDefault();
         navigate(backNav);

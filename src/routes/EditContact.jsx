@@ -1,3 +1,5 @@
+/* Editing information for an existing contact */
+
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -8,12 +10,14 @@ import AppHeader from "../components/AppHeader";
 import ContactForm from "../components/ContactForm";
 
 function EditContact(){
-    const params = useParams();
 
-    const backNav="/contact/" + params.id;
+    /*** Settings and Parameters ***/
+    const params = useParams();
     const navigate = useNavigate();
 
-    // States
+    const backNav="/contact/" + params.id;
+
+    /*** States ***/ 
     const [details, setDetails] = useState({
         id: '',
         firstName: '',
@@ -26,7 +30,8 @@ function EditContact(){
         postalCode: ''
     });
 
-    useEffect( () => {
+    /*** Initialization ***/
+    useEffect( () => {                                                // Get existing contact info from Firebase
         getDoc( doc(db, "contacts", params.id))
             .then(document => {
                 if(document.exists()){
@@ -46,6 +51,9 @@ function EditContact(){
 
     }, []);
     
+    /*** Handlers  ***/
+
+    // Update state when form input changes
     function changeInputHandler(e){
 
         setDetails({
@@ -54,6 +62,7 @@ function EditContact(){
         })
     }
 
+    // Update the database when user submits form
     function updateContactHandler(){
         if(details.firstName && details.lastName) {
 
@@ -64,11 +73,13 @@ function EditContact(){
         }
     }
 
+    // If user cancels, go back to contact page
     function onCancelHandler(e){
         e.preventDefault();
         navigate(backNav);
     }
 
+    /*** Build ***/
     return(
         <article id="app" data-theme="light">
             <AppHeader title={`${details.firstName} ${details.lastName}`} />

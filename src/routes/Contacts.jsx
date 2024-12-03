@@ -1,3 +1,6 @@
+/* Home/main view. Lists the names of all the contacts.
+   Options to view a contact's details, or create a new contact */
+
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
@@ -7,14 +10,16 @@ import AppHeader from '../components/AppHeader';
 import SearchBar from '../components/SearchBar';
 
 function Contacts(){
-    // states
+
+    /*** States ***/
     const [contactList, setContactList] = useState([]);
     const [search, setSearch] = useState('');
 
-    // Pull database snapshot
+    /*** Initialization ***/
     useEffect( () => {
         const q = query( collection(db, 'contacts'), orderBy('lastName') );
 
+        // Get the contact names from firebase, ordered by last name
         const snapShot = onSnapshot(q, (querySnapshot) => {
             const data = [];
             querySnapshot.forEach( (doc) => data.push({
@@ -27,31 +32,35 @@ function Contacts(){
         })
     }, []);
     
-    function updateSearchHandler(s){
+    /*** Handlers ***/
+    function updateSearchHandler(s){        // updating the search bar/state
         setSearch(s);
     }
 
-    //build
+    /*** Build ***/
     return (
-        <article id="app" data-theme="light">
-            <AppHeader title="Contact Book">
-                <Link className="icon" to="new_contact" aria-label='Add new contact'> 
+        <article id="app">
+            
+            <AppHeader title="Contact Book">                                            {/* Header */}                                             
+                <Link className="icon" to="new_contact" aria-label='Add new contact'>   {/* Add New Contact */}    
                     <i className="fa-solid fa-plus" aria-hidden="true"></i> 
                 </Link>
             </AppHeader>
+
             <main>
-                <article>
-                    <header>
-                        <SearchBar search={search} onChange={updateSearchHandler}></SearchBar>
+                <article>                                                                   
+                    <header>                                                            {/*Search Bar */}
+                        <SearchBar search={search} onChange={updateSearchHandler}></SearchBar> 
                     </header>
-                    <main>
-                        <ul id="contactList" className="table">
-                            { 
-                                contactList.filter( contact => 
+
+                    <main>                                                                                                                             
+                        <ul id="contactList" className="table">                         {/* Contact list */}
+                            {   
+                                contactList.filter( contact =>                          /* Filter by search bar value */
                                     contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
                                     contact.lastName.toLowerCase().includes(search.toLowerCase()) 
                                 )
-                                .map(contact =>
+                                .map(contact =>                                         /*Generate list of contact names*/
                                     <li key={contact.id}>
                                         <Link to={`contact/${contact.id}`}> 
                                             {`${contact.firstName} ${contact.lastName}`} 
@@ -62,7 +71,6 @@ function Contacts(){
                         </ul>
                     </main>
                 </article>
-
             </main>
         </article>
       );

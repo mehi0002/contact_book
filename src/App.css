@@ -6,7 +6,7 @@
     min-height: 100vh;
 }
 
-/* Header */
+/*** Header ***/
 #app-header .actions{
     display: flex;
     flex-direction: row;
@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-/* Toolbar */
+/*** Toolbar ***/
 .toolbar{
     display: flex;
     flex-direction: row;
@@ -27,10 +27,6 @@
 }
 
 /*** Buttons ***/
-/* button, button[type=submit]{
-    font-weight: 500;
-} */
-
 button:hover, button[type=submit]:hover {
     background-color: var(--pico-primary-focus);
     color: var(--pico-primary);
@@ -107,6 +103,8 @@ ul.table span{
 }
 
 /******* Forms *******/
+
+/* Fluid field set. Float and wrap input elements */
 form fieldset{
     display: flex;
     flex-wrap: wrap;
@@ -117,13 +115,13 @@ form fieldset{
     border-radius: var(--pico-border-radius);
 }
 
-form label, form legend{
-    font-weight: 600;
-}
-
 form legend{
     text-align: center;
     padding: 0 1rem;
+}
+
+form label, form legend{
+    font-weight: 600;
 }
 
 /* Floating form elements */

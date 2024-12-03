@@ -1,19 +1,24 @@
+// Button that opens a modal to confirm user's choice before proceeding
+
 import { useState } from "react";
 import Modal from "./Modal";
 
 function ConfirmationButton (props){
-    const [dialogOpen, setDialogOpen] = useState(false); 
 
-    function onClick(){
+    // *** States ***
+    const [dialogOpen, setDialogOpen] = useState(false);    // dialog open or closed
+
+    // *** Handlers ***
+    function onClick(){                      // open dialog when a button is clicked
         setDialogOpen(true);
     }
 
-    function onConfirmHandler(){
+    function onConfirmHandler(){             // on confirmation, run parent handler
         setDialogOpen(false);
         props.onConfirm();
     }
 
-    function onCancelHandler(){
+    function onCancelHandler(){               // if cancelled, just close dialog
         setDialogOpen(false);
     }
 

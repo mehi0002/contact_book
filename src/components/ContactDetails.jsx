@@ -1,10 +1,11 @@
+// Displays a list of the contact's information
 function ContactDetails ({details}){
 
     return(
         <address>
             <ul id="contactDetails" className="table">
                 <li>
-                    <span>Email:</span> 
+                    <span>Email:</span>                                 
                     <span>{details.email}</span>
                 </li>
                 <li>

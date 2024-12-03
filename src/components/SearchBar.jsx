@@ -1,4 +1,4 @@
-
+/* search bar that tracks a user's text input and sends it back up to the parent */
 function SearchBar (props){
 
     function onChangeHandler(e){
@@ -10,8 +10,8 @@ function SearchBar (props){
             <input 
                 type="search" 
                 value={props.search} 
-                placeholder="search by name" 
-                aria-label="search by name"
+                placeholder="search by contact name" 
+                aria-label="search by contact name"
                 onChange={onChangeHandler}>
             </input>
                 

@@ -1,4 +1,5 @@
 
+/* Container that floats its contents to the right side of the page */
 function Toolbar(props){
     
     return(
