@@ -17,7 +17,7 @@ function Contacts(){
 
     /*** Initialization ***/
     useEffect( () => {
-        const q = query( collection(db, 'contacts'), orderBy('lastName') );
+        const q = query( collection(db, 'contacts') );
 
         // Get the contact names from firebase, ordered by last name
         const snapShot = onSnapshot(q, (querySnapshot) => {
@@ -60,6 +60,7 @@ function Contacts(){
                                     contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
                                     contact.lastName.toLowerCase().includes(search.toLowerCase()) 
                                 )
+                                .sort( (a,b) => a.lastName.toLowerCase() > b.lastName.toLowerCase() && 1 )
                                 .map(contact =>                                         /*Generate list of contact names*/
                                     <li key={contact.id}>
                                         <Link to={`contact/${contact.id}`}> 
