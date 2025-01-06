@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
+import { query, collection, onSnapshot } from 'firebase/firestore';
 import db from '../db.js';
 
 import AppHeader from '../components/AppHeader.jsx';
