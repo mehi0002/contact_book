@@ -4,10 +4,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
-import db from '../db';
+import db from '../db.js';
 
-import AppHeader from '../components/AppHeader';
-import SearchBar from '../components/SearchBar';
+import AppHeader from '../components/AppHeader.jsx';
+import SearchBar from '../components/SearchBar.jsx';
 
 function Contacts(){
 

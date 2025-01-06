@@ -1,3 +1,4 @@
+
 /* search bar that tracks a user's text input and sends it back up to the parent */
 function SearchBar (props){
 

@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { doc, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
-import db from "../db";
+import db from "../db.js";
 
-import AppHeader from "../components/AppHeader";
-import ContactForm from "../components/ContactForm";
+import AppHeader from "../components/AppHeader.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 
 function EditContact(){
 

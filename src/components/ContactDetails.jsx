@@ -1,3 +1,4 @@
+
 // Displays a list of the contact's information
 function ContactDetails ({details}){
 

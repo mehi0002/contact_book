@@ -1,7 +1,7 @@
 // Header structure with the page title, action items, and navigation. Option for a back link
 
 import { Link } from "react-router-dom";
-import Toolbar from "./Toolbar";
+import Toolbar from "./Toolbar.jsx";
 
 function AppHeader(props){
     return(

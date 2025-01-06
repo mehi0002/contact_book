@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
-import db from "../db";
+import db from "../db.js";
 
-import AppHeader from "../components/AppHeader";
-import ContactForm from "../components/ContactForm";
+import AppHeader from "../components/AppHeader.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 
 function NewContact(){
 

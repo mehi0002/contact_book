@@ -1,3 +1,4 @@
+
 /* basic modal with options to either accept of reject.
    custom message and button descriptions can be passed in by parent */ 
 function Modal(props){

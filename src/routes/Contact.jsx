@@ -4,11 +4,11 @@ with Options to edit or delete */
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getDoc, doc, deleteDoc} from "firebase/firestore";
-import db from "../db";
+import db from "../db.js";
 
-import AppHeader from "../components/AppHeader";
-import ContactDetails from "../components/ContactDetails";
-import ConfirmationButton from "../components/ConfirmationButton";
+import AppHeader from "../components/AppHeader.jsx";
+import ContactDetails from "../components/ContactDetails.jsx";
+import ConfirmationButton from "../components/ConfirmationButton.jsx";
 
 function Contact(){
 

@@ -1,7 +1,7 @@
 // Button that opens a modal to confirm user's choice before proceeding
 
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "./Modal.jsx";
 
 function ConfirmationButton (props){
 
