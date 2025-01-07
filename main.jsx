@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import App from './App.jsx';
-import Contacts from './routes/Contacts.jsx';
-import Contact from './routes/Contact.jsx';
-import NewContact from './routes/NewContact.jsx';
-import EditContact from './routes/EditContact.jsx';
-import './app.css';
+import App from './src/App.jsx';
+import Contacts from './src/routes/Contacts.jsx';
+import Contact from './src/routes/Contact.jsx';
+import NewContact from './src/routes/NewContact.jsx';
+import EditContact from './src/routes/EditContact.jsx';
+import './src/app.css';
 
 const router = createBrowserRouter([
   {
